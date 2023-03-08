@@ -17,7 +17,7 @@ app.include_router(main_router)
 
 
 @app.on_event('startup')
-@repeat_every(seconds=60)
+@repeat_every(seconds=10*60)
 def parse_news():
     logger.info('Event started')
     data = None

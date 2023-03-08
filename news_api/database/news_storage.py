@@ -39,7 +39,8 @@ class NewsStorage:
         try:
             with self.session() as session:
                 objs = session.query(News).where(
-                    News.publication_date >= date_delta).all()
+                    News.publication_date >= date_delta).order_by(
+                        News.id.desc()).all()
                 return objs
         except Exception as e:
             logger.error(e)
